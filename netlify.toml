@@ -6,4 +6,4 @@
 [functions]
         node_bundler = "esbuild"
 [functions."scheduled"]
-    schedule = "@daily"
+    schedule = "0 21 * * *"

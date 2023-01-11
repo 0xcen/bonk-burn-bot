@@ -5,11 +5,11 @@ import {
   schedule,
 } from '@netlify/functions';
 
-import { TwitterApi } from 'twitter-api-v2';
-import { getCurrentSupply, getPreviousSupply, setSupply } from '../../src';
-import supabase from '../../src/supabaseClient';
-import BigNumber from 'bignumber.js';
 import { Response } from '@netlify/functions/dist/function/response';
+import { TwitterApi } from 'twitter-api-v2';
+import BigNumber from 'bignumber.js';
+
+import { getCurrentSupply, getPreviousSupply, setSupply } from '../../src';
 
 const myHandler: Handler = async (
   event: HandlerEvent,
@@ -38,14 +38,10 @@ const myHandler: Handler = async (
       `${new BigNumber(currentSupply).decimalPlaces(0)}`
     );
 
-    const tweet = await client.v2.me();
-    console.log('🚀 ~ file: scheduled.ts:41 ~ tweet', tweet);
+    const twitterRes = await client.v2.tweet(
+      `${amount.toFormat(0)} $BONK has been burned in the last 24 hours!`
+    );
 
-    // const twitterRes = await client.v2.tweet(
-    //   `${amount.toFormat(0)} $BONK has been burned in the last 24 hours`
-    // );
-
-    // console.log(twitterRes);
     return {
       statusCode: 200,
     };
@@ -55,6 +51,6 @@ const myHandler: Handler = async (
   }
 };
 
-const handler = schedule('@daily', myHandler);
+const handler = schedule('0 21 * * *', myHandler);
 
 export { handler };
