@@ -1,0 +1,8 @@
+dist/
+.env
+# Local Netlify folder
+.netlify
+yarn*
+
+
+node_modules

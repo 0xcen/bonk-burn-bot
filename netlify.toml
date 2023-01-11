@@ -1,0 +1,9 @@
+[build]
+	command = "yarn start"
+	functions = "netlify/functions"
+	publish = "public"
+
+[functions]
+        node_bundler = "esbuild"
+[functions."scheduled"]
+    schedule = "@daily"
