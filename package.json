@@ -1,7 +1,7 @@
 {
   "name": "bonk-burn-bot",
   "version": "1.0.0",
-  "description": "Starter template for a Solana client script",
+  "description": "Tracking the daily burn of $BONK on Twitter.",
   "main": "index.ts",
   "scripts": {
     "start": "ts-node src/index.ts"

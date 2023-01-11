@@ -1,1 +1,1 @@
-# solana-npx-client-template
+# @bonk_bbq
