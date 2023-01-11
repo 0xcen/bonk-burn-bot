@@ -1,7 +1,7 @@
 [build]
 	command = "yarn start"
 	functions = "netlify/functions"
-	publish = "public"
+	publish = "/"
 
 [functions]
         node_bundler = "esbuild"
