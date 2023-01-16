@@ -38,6 +38,8 @@ const myHandler: Handler = async (
       `${new BigNumber(currentSupply).decimalPlaces(0)}`
     );
 
+    if (Number.isNaN(amount.toFormat(0))) return { statusCode: 500 };
+
     const twitterRes = await client.v2.tweet(
       `${amount.toFormat(0)} $BONK has been burned in the last 24 hours!`
     );

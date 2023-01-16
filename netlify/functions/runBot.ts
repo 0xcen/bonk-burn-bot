@@ -26,19 +26,18 @@ export const handler = async () => {
     const dbRes = await setSupply(
       `${new BigNumber(currentSupply).decimalPlaces(0)}`
     );
+    if (Number.isNaN(amount.toFormat(0))) return { statusCode: 500 };
 
-    const tweet = await client.v2.me();
-
-    // const twitterRes = await client.v2.tweet(
-    //   `${amount.toFormat(0)} $BONK has been burned in the last 24 hours`
-    // );
+    const twitterRes = await client.v2.tweet(
+      `${amount.toFormat(0)} $BONK has been burned in the last 24 hours!`
+    );
 
     // console.log(twitterRes);
     return {
       statusCode: 200,
       body: JSON.stringify({
         amount: amount.toFormat(0),
-        tweet,
+        twitterRes,
       }),
     };
   } catch (error) {
