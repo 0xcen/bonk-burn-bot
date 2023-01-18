@@ -5,5 +5,5 @@
 
 [functions]
         node_bundler = "esbuild"
-[functions."scheduled"]
-    schedule = "0 21 * * *"
+# [functions."scheduled"]
+#     schedule = "0 21 * * *"
