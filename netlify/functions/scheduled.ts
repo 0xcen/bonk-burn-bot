@@ -53,6 +53,6 @@ const myHandler: Handler = async (
   }
 };
 
-const handler = schedule('0 20 * * *', myHandler);
+// const handler = schedule('0 20 * * *', myHandler);
 
-export { handler };
+export { schedule };
